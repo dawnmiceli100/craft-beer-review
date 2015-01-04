@@ -1,0 +1,25 @@
+<%= render "shared/content_title", title: "#{@beer.brewery.name} #{@beer.name}" %> 
+<div class="row">
+  <div class="well span8">
+    <dl class="dl-horizontal">
+      <dt>Style:</dt>
+      <dd><%= @beer.style.name %></dd>
+      <dt>Brewery:</dt>
+      <dd><%= @beer.brewery.name %></dd>
+      <dt>Average Rating:</dt>
+      <dd><%= @beer.average_rating %></dd>
+    </dl>  
+  </div>  
+</div>
+
+<h5>Reviews</h5>
+
+<% if @beer.reviews.count > 0 %>
+  <% @beer.reviews.each do |review| %>
+    <%= render "reviews/reviews", review: review %>
+  <% end %> 
+<% else %>
+  <%= render "reviews/no_reviews" %>
+<% end %> 
+
+<td><%= link_to "add a review", new_beer_review_path(@beer.id), class: "btn btn-success"%></td>

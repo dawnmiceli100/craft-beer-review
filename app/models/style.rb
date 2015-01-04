@@ -1,6 +1,6 @@
 class Style < ActiveRecord::Base
   has_many :beers
-  has_many :breweries, through :brewery_styles
+  has_many :breweries, through: :brewery_styles
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
 end  

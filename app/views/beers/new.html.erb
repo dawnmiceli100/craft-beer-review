@@ -1,0 +1,19 @@
+<%= render "shared/content_title", title: "Add a New Beer" %>
+
+<%= form_for @beer do |f| %>
+  <%= render 'shared/errors', model_object: @beer %>
+  <div class="control-group">
+    <%= f.label "Style" %>
+    <%= f.collection_select :style_id, Style.all, :id, :name, prompt: true %> 
+  </div>   
+  <div class="control-group">
+    <%= f.label "Brewery" %>
+    <%= f.collection_select :brewery_id, Brewery.all, :id, :name, prompt: true %> 
+  </div>  
+  <div class="control-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <br/>
+    <%= f.submit "Add Beer", class: "btn btn-primary" %>  
+<% end %>  

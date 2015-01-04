@@ -1,0 +1,12 @@
+<%= render "shared/content_title", title: "Recent Reviews" %>
+ 
+<% if @reviews.count > 0 %>
+  <% @reviews.each do |review| %>
+    <%= render "reviews", review: review, include_beer_name: true %>
+  <% end %> 
+<% else %>
+  <%= render "no_reviews" %>
+<% end %> 
+
+
+

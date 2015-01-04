@@ -1,15 +1,15 @@
-CraftBeerReview.application.routes.draw do
+Rails.application.routes.draw do
   
   root to: 'reviews#index'
 
   resources :beers, except: [:destroy] do
-    resources :reviews, only: [:create]
+    resources :reviews, except: [:destroy]
   end
   
   resources :users, except: [:destroy]  
 
-  resources :breweries, only: [:new, :create, :show,]
+  resources :breweries, except: [:destroy]
 
-  resources :styles, only: [:new, :create, :show]
+  resources :styles, except: [:destroy]
 
 end

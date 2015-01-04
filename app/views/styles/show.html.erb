@@ -1,0 +1,5 @@
+<%= render "shared/content_title", title: "Craft Beers that are #{@style.name}" %> 
+
+<%= render "beers/list" %>
+
+<%= link_to "Add a Beer", new_beer_path, class: "btn btn-success" %>

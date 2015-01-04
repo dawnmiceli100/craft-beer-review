@@ -1,0 +1,12 @@
+<%= render "shared/content_title", title: "Add a New Brewery" %>
+
+<%= form_for @brewery do |f| %>
+  <%= render 'shared/errors', model_object: @brewery %>
+  <div class="control-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %> 
+  </div>   
+  
+  <br/>
+    <%= f.submit "Add Brewery", class: "btn btn-primary" %>  
+<% end %>  

@@ -1,0 +1,26 @@
+<%= render "shared/content_title", title: "Add a New Review for #{@beer.brewery.name} #{@beer.name}" %>
+
+<%= form_for [@beer, @review] do |f| %>
+  <%= render 'shared/errors', model_object: @review %>
+  <div class="control-group">
+    <%= f.label :body, "Write your review" %>
+    <%= f.text_area :body, rows: 4, class: 'span7' %> 
+  </div>   
+
+  <p>Rate on a scale from 1 to 5 (1 is low, 5 is high):</p>
+  <div class="control-group">
+    <%= f.label :rating, '1', class: "radio inline" %>
+    <%= f.radio_button :rating, '1', value: 1 %>
+    <%= f.label :rating, '2', class: "radio inline" %>
+    <%= f.radio_button :rating, '2', value: 2 %>
+    <%= f.label :rating, '3', class: "radio inline"%>
+    <%= f.radio_button :rating, '3', value: 3 %>
+    <%= f.label :rating, '4', class: "radio inline" %>
+    <%= f.radio_button :rating, '4', value: 4 %>
+    <%= f.label :rating, '5', class: "radio inline" %>
+    <%= f.radio_button :rating, '5', value: 5 %>
+  </div>  
+  <br/>
+    <%= f.submit "Add Review", class: "btn btn-primary" %>  
+<% end %>  
+

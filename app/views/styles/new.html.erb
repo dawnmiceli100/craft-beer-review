@@ -1,0 +1,12 @@
+<%= render "shared/content_title", title: "Add a New Style" %>
+
+<%= form_for @style do |f| %>
+  <%= render 'shared/errors', model_object: @style %>
+  <div class="control-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %> 
+  </div>   
+  
+  <br/>
+    <%= f.submit "Add Style", class: "btn btn-primary" %>  
+<% end %>  

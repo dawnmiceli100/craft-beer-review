@@ -1,0 +1,10 @@
+<% include_beer_name ||= false %>
+<div class="row">
+  <div class="well span8">
+    <% if include_beer_name  %>
+      <p> Review for <%= link_to review.beer.brewery.name + ' ' + review.beer.name, beer_path(review.beer) %></p>
+    <% end %>
+    <p><em>"<%= review.body %>"</em></p>
+    <p>Overall Rating: <%= review.rating %> </p>
+  </div>  
+</div>  
