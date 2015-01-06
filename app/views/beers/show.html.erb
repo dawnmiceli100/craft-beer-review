@@ -1,4 +1,4 @@
-<%= render "shared/content_title", title: "#{@beer.brewery.name} #{@beer.name}" %> 
+<%= render "shared/content_title", title: "#{brewery_plus_beer_name(@beer)}" %> 
 <div class="row">
   <div class="well span8">
     <dl class="dl-horizontal">
@@ -22,4 +22,4 @@
   <%= render "reviews/no_reviews" %>
 <% end %> 
 
-<td><%= link_to "add a review", new_beer_review_path(@beer.id), class: "btn btn-success"%></td>
+<td><%= link_to "add a review", new_beer_review_path(@beer), class: "btn btn-success"%></td>

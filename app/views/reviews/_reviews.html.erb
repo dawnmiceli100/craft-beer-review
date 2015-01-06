@@ -2,9 +2,11 @@
 <div class="row">
   <div class="well span8">
     <% if include_beer_name  %>
-      <p> Review for <%= link_to review.beer.brewery.name + ' ' + review.beer.name, beer_path(review.beer) %></p>
+      <h5> Review for <%= link_to brewery_plus_beer_name(review.beer), beer_path(review.beer) %></h5>
     <% end %>
     <p><em>"<%= review.body %>"</em></p>
-    <p>Overall Rating: <%= review.rating %> </p>
+    <p>Reviewer Rating: <%= review.rating %> </p>
+    <p><span class="quiet">Reviewed by </span> <%= link_to review.user.username, user_path(review.user) %> <small> on <%= friendly_datetime(review.created_at) %></small>
+    </p>
   </div>  
 </div>  

@@ -1,4 +1,4 @@
-<%= render "shared/content_title", title: "Add a New Review for #{@beer.brewery.name} #{@beer.name}" %>
+<%= render "shared/content_title", title: "Add a New Review for #{brewery_plus_beer_name(@beer)}" %>
 
 <%= form_for [@beer, @review] do |f| %>
   <%= render 'shared/errors', model_object: @review %>

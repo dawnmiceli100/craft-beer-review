@@ -1,16 +1,19 @@
 class ReviewsController < ApplicationController
+  before_action :require_user, except: [:index, :show]
+  before_action :set_beer, only:[:new, :create]
+  
   def index
     @reviews = Review.order(created_at: :desc).limit(5)
   end  
 
   def new
-    @beer = Beer.find(params[:beer_id])
     @review = Review.new
   end
   
   def create
-    @beer = Beer.find_by(id: params[:beer_id])
     @review = @beer.reviews.new(review_params)
+    @review.user = current_user
+    
     if @review.save
       flash[:notice] = "Your review has been saved."
       redirect_to beer_path(@beer)
@@ -22,4 +25,8 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:body, :rating)
   end  
+
+  def set_beer
+    @beer = Beer.find_by(slug: params[:beer_id])
+  end     
 end  

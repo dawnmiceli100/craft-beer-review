@@ -1,10 +1,11 @@
 class BreweriesController < ApplicationController
+  before_action :require_user, except: [:index, :show]
   def index
     @breweries = Brewery.all
   end
 
   def show
-    @brewery = Brewery.find(params[:id])
+    @brewery = Brewery.find_by(slug: params[:id])
     @beers = @brewery.beers
   end  
   

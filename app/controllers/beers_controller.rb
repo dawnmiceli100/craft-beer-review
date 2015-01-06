@@ -1,10 +1,11 @@
 class BeersController < ApplicationController
+  before_action :require_user, except: [:index, :show]
   def index
-    @beers = Beer.order(:name)
+    @beers = Beer.all.sort_by {|x| [x.brewery_name, x.name]}
   end
 
   def show
-    @beer = Beer.find(params[:id])
+    @beer = Beer.find_by(slug: params[:id])
   end  
   
   def new
@@ -15,14 +16,15 @@ class BeersController < ApplicationController
     @beer = Beer.new(beer_params)
 
     if @beer.save
-      flash[:notice] = "#{@beer.brewery.name} #{@beer.name} has been successfully added."
+      flash[:notice]  = "#{brewery_plus_beer_name(@beer)} has been successfully added."
       redirect_to @beer
     else
       render 'new'
     end
   end
 
-  def beer_params
-    params.require(:beer).permit(:name, :brewery_id, :style_id)  
-  end          
+  def list_order(beer)
+    beer.order(beer.brewery.name, beer.name)
+  end  
+
 end  

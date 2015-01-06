@@ -1,0 +1,23 @@
+<%= render "shared/content_title", title: "Profile: #{@user.username}" %>
+<div class="row">
+  <div class="well span8">
+    <dl class="dl-horizontal">
+      <dt>Username:</dt>
+      <dd><%= @user.username %></dd>
+      <dt>Time Zone:</dt>
+      <dd><%= @user.time_zone %></dd>
+    </dl>  
+  </div>
+</div>
+<h5><strong><%= @user.username %>'s Reviews</strong></h5>
+  
+<% if @user.reviews.count > 0 %>
+  <% @user.reviews.each do |review| %>
+    <%= render "reviews/reviews", review: review, include_beer_name: true %>
+  <% end %> 
+<% else %>
+  <%= render "reviews/no_reviews" %>
+<% end %>     
+     
+
+

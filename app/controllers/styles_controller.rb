@@ -1,10 +1,12 @@
 class StylesController < ApplicationController
+  before_action :require_user, except: [:index, :show]
+  
   def index
     @styles = Style.all
   end
 
   def show
-    @style = Style.find(params[:id])
+    @style = Style.find_by(slug: params[:id])
     @beers = @style.beers
   end  
   
