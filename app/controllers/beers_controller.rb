@@ -23,8 +23,4 @@ class BeersController < ApplicationController
     end
   end
 
-  def list_order(beer)
-    beer.order(beer.brewery.name, beer.name)
-  end  
-
 end  

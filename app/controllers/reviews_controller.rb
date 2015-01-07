@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
   before_action :set_beer, only:[:new, :create]
   
   def index
-    @reviews = Review.order(created_at: :desc).limit(5)
+    @reviews = Review.order(created_at: :desc).limit(3)
   end  
 
   def new

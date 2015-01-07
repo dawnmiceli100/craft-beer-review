@@ -27,4 +27,5 @@ class Beer < ActiveRecord::Base
   def brewery_name
     self.brewery.name
   end  
+
 end  
