@@ -6,9 +6,5 @@ module ApplicationHelper
     end  
     datetime.strftime("%B %d, %Y at %l:%M %p %Z")   
   end
-
-  def brewery_plus_beer_name(beer)
-    name = "#{beer.brewery.name} #{beer.name}"
-  end   
   
 end
