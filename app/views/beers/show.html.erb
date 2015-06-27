@@ -14,10 +14,15 @@
 
 <h5>Reviews</h5>
 
-<% if @beer.reviews.count > 0 %>
-  <% @beer.reviews.each do |review| %>
+<% if @reviews.count > 0 %>
+  <% @reviews.each do |review| %>
     <%= render "reviews/reviews", review: review %>
   <% end %> 
+  <div class="row">
+    <div class="span8 paginator">
+      <%= paginate @reviews %>
+    </div>
+  </div>    
 <% else %>
   <%= render "reviews/no_reviews" %>
 <% end %> 

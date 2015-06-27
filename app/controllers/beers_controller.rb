@@ -1,11 +1,12 @@
 class BeersController < ApplicationController
   before_action :require_user, except: [:index, :show]
   def index
-    @beers = Beer.all.sort_by {|x| [x.brewery_name, x.name]}
+    @beers = Kaminari.paginate_array(Beer.all.sort_by {|x| [x.brewery_name, x.name]}).page(params[:page]).per(10)
   end
 
   def show
     @beer = Beer.find_by(slug: params[:id])
+    @reviews = @beer.reviews.order(created_at: :desc).page(params[:page]).per(2)
   end  
   
   def new

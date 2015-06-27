@@ -2,7 +2,7 @@ class StylesController < ApplicationController
   before_action :require_user, except: [:index, :show]
   
   def index
-    @styles = Style.all
+    @styles = Style.all.page(params[:page]).per(10)
   end
 
   def show
