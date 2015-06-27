@@ -16,7 +16,7 @@
   </li>  
   <% if logged_in? %> 
     <div class="btn-group nav_item dropdown">
-      <%= link_to '#', class: "btn btn-small dropdown-toggle", 'data-toggle' => 'dropdown' do %>
+      <%= link_to '#', class: "btn btn-default dropdown-toggle", 'data-toggle' => 'dropdown' do %>
         <%= current_user.username %> <span class='caret'></span>
       <% end %>  
       <ul class="dropdown-menu">

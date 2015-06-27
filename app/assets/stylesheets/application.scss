@@ -13,13 +13,22 @@
  *= require bootstrap
  */
 
+@import url(//fonts.googleapis.com/css?family=Philosopher);
+@import url(//fonts.googleapis.com/css?family=Muli);
 
 .container {
   margin-left: 135px
 }
 
+body header, #main {
+  font-family: 'Muli', sans-serif;
+}
+
 .navbar .nav > li > a.brand {
   padding-left: 20px;
+  font-family: 'Philosopher', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .quiet {

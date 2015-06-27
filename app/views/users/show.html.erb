@@ -11,10 +11,16 @@
 </div>
 <h5><strong><%= @user.username %>'s Reviews</strong></h5>
   
-<% if @user.reviews.count > 0 %>
-  <% @user.reviews.each do |review| %>
+<% if @reviews.count > 0 %>
+  <% @reviews.each do |review| %>
     <%= render "reviews/reviews", review: review, include_beer_name: true %>
   <% end %> 
+
+  <div class="row">
+    <div class="span8 paginator">
+      <%= paginate @reviews %>
+    </div>
+  </div>    
 <% else %>
   <%= render "reviews/no_reviews" %>
 <% end %>     

@@ -31,6 +31,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @reviews = @user.reviews.order(created_at: :desc).page(params[:page]).per(2)
   end  
 
   def user_params
