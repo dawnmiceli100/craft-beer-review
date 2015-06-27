@@ -17,4 +17,10 @@
   </tbody>  
 </table>  
 
+<div class="row">
+  <div class="paginator">
+    <%= paginate @breweries %>
+  </div>
+</div>    
+
 <%= link_to "Add a Brewery", new_brewery_path, class: "btn btn-success" %>

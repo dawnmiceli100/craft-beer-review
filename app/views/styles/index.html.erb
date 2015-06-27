@@ -17,4 +17,10 @@
   </tbody>  
 </table>  
 
+<div class="row">
+  <div class="paginator">
+    <%= paginate @styles %>
+  </div>
+</div>
+
 <%= link_to "Add a Style", new_style_path, class: "btn btn-success" %>

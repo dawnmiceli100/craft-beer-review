@@ -1,7 +1,7 @@
 class BreweriesController < ApplicationController
   before_action :require_user, except: [:index, :show]
   def index
-    @breweries = Brewery.all
+    @breweries = Brewery.all.page(params[:page]).per(10)
   end
 
   def show

@@ -1,4 +1,8 @@
 <%= render "shared/content_title", title: "Craft Beers" %>
 <%= render "list" %>
-
+<div class="row">
+  <div class="paginator">
+    <%= paginate @beers %>
+  </div>
+</div>    
 <%= link_to "Add a Beer", new_beer_path, class: "btn btn-success" %>

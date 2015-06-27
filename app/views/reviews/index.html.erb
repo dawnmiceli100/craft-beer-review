@@ -4,6 +4,11 @@
   <% @reviews.each do |review| %>
     <%= render "reviews", review: review, include_beer_name: true %>
   <% end %> 
+  <div class="row">
+    <div class="span8 paginator">
+      <%= paginate @reviews %>
+    </div>  
+  </div>  
 <% else %>
   <%= render "no_reviews" %>
 <% end %> 
